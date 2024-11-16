@@ -1,0 +1,98 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1{
+        color: #404040;
+        text-transform: uppercase;
+    }
+
+    p{
+        color: #848484;
+        font-weight: 500;
+    }
+
+    input {
+        border: none;
+        background: #fdecec;
+        padding: 16px 80px;
+        border-radius: 40px;
+        outline: none;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAZ5JREFUOBGdlLtKA0EUhtdoZbCTiPdLKdoKBpXtJFjY2Vv5AHaCii8hKOgDRLBSGxvFSmxsJGKMCaYNCIoXAjF+J5wlZza7AbPwcWbO/++/O5nJel7oqnveAhxDAb7hDW5hB/pD9ugpxj44gXob3tHWoxO0i0GC7jWkRj2ANZiGZdiGCgQP2ooNxJRVY4k6H2WkPwAX6vulZlp8NNNqkDdKtxhMAz0Jz+p/pHYZmff2vCMVDx0hZoI3o35Z8qK1JZj42ri0QpvxNVpN9SXrk7AhbTxYIW7Mur7QSqqPWJ+E/Whj2ApxY5bWjTaoetX6JCyvjTkrtBnPoPWqnnN8PGlXf1A5RylHjJjgOVe/7P64Y6GRgg+Q3RFj0jGYCdqm+sSbNVJziLBhTAXGK9AIpSZgFs5AQgIiD3cjFdOeMcoNsow8fIb6QdgL/bHmK4VGiKvwFHNzlf4+yFelrB4n0P07EI6phyIn2wc5AhWQXbvBXKKKZ4pyBaNQBB/tldrZReAkyIdBli2/swR3fhEwAUWQwLuWZf43mhDZhFMo/wFNVOfnZ9Lk9wAAAABJRU5ErkJggg==);
+        background-repeat: no-repeat;
+        background-position: left 20px center;
+        background-repeat: no-repeat;
+        padding-left: 60px;
+        width: 50vw;
+        color: #575656;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    input::placeholder {
+        color: #fa7474 !important;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    input:focus-visible {
+        border: 2px solid #fa7474;
+    }
+}
+
+.bar{
+    margin: 40px auto;
+    width: 60%;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    
+    div{
+        display: flex;
+        gap: 20px;
+        color: #b5b5b5;
+        font-weight: bold;
+    }
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.redTxt{
+    color: #fa7c7c;
+    font-weight: bold;
+}
+
+//MOBILE
+@media screen and (max-width: 600px){
+    p {
+        text-align: center;
+    }
+    .bar{
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+        div {
+            margin-bottom: 4%;
+            font-size: 14px;
+            gap: 10px;
+        }
+    }
+}

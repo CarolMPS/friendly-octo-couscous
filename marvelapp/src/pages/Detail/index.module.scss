@@ -1,0 +1,156 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin: 4%;
+    min-height: 78vh;
+}
+
+.btnContainer {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 6vw;
+
+    img {
+        max-width: 200px;
+        cursor: pointer;
+    }
+
+    input {
+        border: none;
+        background: #fdecec;
+        padding: 16px 80px;
+        border-radius: 40px;
+        outline: none;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAAXNSR0IArs4c6QAAAZ5JREFUOBGdlLtKA0EUhtdoZbCTiPdLKdoKBpXtJFjY2Vv5AHaCii8hKOgDRLBSGxvFSmxsJGKMCaYNCIoXAjF+J5wlZza7AbPwcWbO/++/O5nJel7oqnveAhxDAb7hDW5hB/pD9ugpxj44gXob3tHWoxO0i0GC7jWkRj2ANZiGZdiGCgQP2ooNxJRVY4k6H2WkPwAX6vulZlp8NNNqkDdKtxhMAz0Jz+p/pHYZmff2vCMVDx0hZoI3o35Z8qK1JZj42ri0QpvxNVpN9SXrk7AhbTxYIW7Mur7QSqqPWJ+E/Whj2ApxY5bWjTaoetX6JCyvjTkrtBnPoPWqnnN8PGlXf1A5RylHjJjgOVe/7P64Y6GRgg+Q3RFj0jGYCdqm+sSbNVJziLBhTAXGK9AIpSZgFs5AQgIiD3cjFdOeMcoNsow8fIb6QdgL/bHmK4VGiKvwFHNzlf4+yFelrB4n0P07EI6phyIn2wc5AhWQXbvBXKKKZ4pyBaNQBB/tldrZReAkyIdBli2/swR3fhEwAUWQwLuWZf43mhDZhFMo/wFNVOfnZ9Lk9wAAAABJRU5ErkJggg==);
+        background-repeat: no-repeat;
+        background-position: left 20px center;
+        background-repeat: no-repeat;
+        padding-left: 60px;
+        width: 320px;
+        color: #575656;
+        font-weight: bold;
+        font-size: 15px;
+        max-height: 16px;
+    }
+
+    input::placeholder {
+        color: #fa7474 !important;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    input:focus-visible {
+        border: 2px solid #fa7474;
+    }
+
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 16vw;
+
+    p {
+        color: #474747;
+    }
+
+    span {
+        color: #4b4b4b;
+    }
+
+    img {
+        width: 50vw;
+        height: auto;
+    }
+}
+
+.flex {
+    display: flex;
+    gap: 4vw;
+    margin-bottom: 4%;
+}
+
+.comic {
+    h3 {
+        color: #404040;
+    }
+
+    .comicDiv {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+
+        span {
+            font-size: 14px;
+            font-weight: 600;
+            color: #3f3f3f;
+        }
+    }
+
+}
+
+.comicCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+
+    img {
+        height: 140px;
+        max-width: 100px;
+        object-fit: fill;
+    }
+
+}
+//MOBILE
+@media screen and (max-width: 600px) {
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+
+        img {
+            width: 80vw;
+            height: auto;
+        }
+    }
+
+    .btnContainer {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .comic {
+        h3 {
+            text-align: center;
+        }
+    }
+
+    .comicDiv {
+        justify-content: center;
+    }
+
+    .flex {
+        justify-content: center;
+    }
+
+    .btnContainer {
+        input {
+            width: 200px;
+        }
+    }
+}

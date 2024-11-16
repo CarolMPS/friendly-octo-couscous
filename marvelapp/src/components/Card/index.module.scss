@@ -1,0 +1,29 @@
+.card {
+    width: 230px;
+    height: 250px;
+    margin-bottom: 4%;
+}
+
+.heroImg {
+    width: 230px;
+    height: 230px;
+    object-fit: fill;
+    border-bottom: 2.5px solid #ff1510;
+}
+
+.btnDiv {
+    margin-top: 4%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #404040;
+        font-weight: bold;
+        font-size: 14px;
+    }
+}

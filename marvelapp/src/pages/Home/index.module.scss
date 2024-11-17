@@ -80,6 +80,30 @@
     font-weight: bold;
 }
 
+.pagination{
+    margin: 2% 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    color: #fa7c7c;
+    font-weight: bold;
+    button{
+        border: 1px solid red;
+        padding: 8px 16px;
+        background: none;
+        color: red;
+        text-transform: uppercase;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.1s ease-in-out, text-decoration 0.2s ease-in-out;
+    }
+    button:hover{
+        color: white;
+        background: red;
+    }
+}
+
 //MOBILE
 @media screen and (max-width: 600px){
     p {

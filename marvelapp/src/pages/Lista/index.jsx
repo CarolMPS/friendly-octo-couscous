@@ -11,7 +11,9 @@ export default function Lista({
     favoritos,
     showFavorites,
     amountOf,
-    handleAmount
+    handleAmount,
+    itemsPerPage,
+    page
 }) {
     //ESTADOS
     const [heroes, setHeroes] = useState('');
@@ -30,6 +32,7 @@ export default function Lista({
     // Função que pega a lista de pergonagens com 
     const get_list = async () => {
         setLoading(true);
+        const offset = (page - 1) * itemsPerPage;
         try {
             const response = await axios.get('https://gateway.marvel.com:443/v1/public/characters', {
                 params: {
@@ -39,6 +42,7 @@ export default function Lista({
                     limit: amountOf,
                     name: search,
                     orderBy: order,
+                    offset:offset
                 }
             })
             setHeroes(response.data.data.results);
@@ -52,7 +56,7 @@ export default function Lista({
 
     useEffect(() => {
         get_list();
-    }, [search, order, amountOf])
+    }, [search, order, amountOf, page])
 
     return (
         <div className={style.main} >
@@ -87,16 +91,14 @@ export default function Lista({
                             })
                         }
 
-                        {
-
-
+                        {/* {
                             showFavorites === 'Todos os heróis' || amountOf > 80 ?
                                 <></>
                                 :
                                 <div className={style.btnDiv} >
                                     <button onClick={() => handleAmount()} >Ver mais</button>
                                 </div>
-                        }
+                        } */}
 
                     </>
             }

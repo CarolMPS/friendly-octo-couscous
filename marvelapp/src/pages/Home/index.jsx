@@ -13,11 +13,14 @@ import style from "./index.module.scss";
 export default function MainPage() {
 
     //ESTADOS
-    const [page, setPage] = useState(1);
     const [toggleImg, setToggleImg] = useState(ToggleOff);
     const [search, setSearch] = useState(null);
     const [searchAux, setSearchAux] = useState(null)
     const [order, setOrder] = useState(null);
+    //PAGINAÇÃO
+    const [page, setPage] = useState(1);
+    const [totalPages, setTotalPages] = useState(10);
+
     //FAVORITOS
     const [favoritos, setFavoritos] = useState(() => {
         const savedFavoritos = localStorage.getItem('favoritos');
@@ -61,7 +64,7 @@ export default function MainPage() {
     //BOTÃO DE ORDENAR NOMES POR ORDEM DE A/Z
     const handleOrder = () => {
         setToggleImg(toggleImg === ToggleOff ? ToggleOn : ToggleOff);
-        setOrder( !order ? '-name' : 'name')
+        setOrder(!order ? '-name' : 'name')
     }
 
     //MANDAR O NOME DO HERÓI POR PARAMETRO COM O ENTER
@@ -72,6 +75,15 @@ export default function MainPage() {
         }
     }
 
+    //FUNÇÃO PAGINAÇÃO
+    const itemsPerPage = 20;
+
+    const handlePageChange = (elm) => {
+        if (elm > 0 && page <= totalPages) {
+            setPage(elm);
+        }
+    };
+
     return (
         <>
             <div className={style.header} >
@@ -79,7 +91,7 @@ export default function MainPage() {
                 <h1>Explore o universo</h1>
                 <p>
                     Mergulhe no domínio deslumbrante de todos os personagens
-                    clássicos que você ama - e aqueles que você descobrirá em breve.
+                    clássicos que você ama - e aqueles que você descobrirá em breve!
                 </p>
                 <div>
                     <input
@@ -106,7 +118,7 @@ export default function MainPage() {
                             />
                             <span
                                 className={style.redTxt}
-                            >Orderar de A/Z</span>
+                            >Orderar por nome - A/Z</span>
                             <button
                                 className={style.btn}
                                 onClick={handleOrder}
@@ -148,7 +160,27 @@ export default function MainPage() {
                 amountOf={amountOf}
                 handleAmount={handleAmount}
                 order={order}
+                itemsPerPage={itemsPerPage}
+                page={page}
             />
+            {
+                showFavorites === "Somente favoritos" &&
+                <div className={style.pagination}>
+                    <button
+                        onClick={() => handlePageChange(page - 1)}
+                        disabled={page === 1}
+                    >
+                        Anterior
+                    </button>
+                    <span> {page} de {totalPages} </span>
+                    <button
+                        onClick={() => handlePageChange(page + 1)}
+                        disabled={page === totalPages}
+                    >
+                        Próxima
+                    </button>
+                </div>
+            }
         </>
     )
 }

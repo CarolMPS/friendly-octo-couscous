@@ -106,108 +106,113 @@ export default function Detail() {
             }
         }
     };
-    
+
     return (
         <>
-        <div className={style.mainContainer}>
+            <div className={style.mainContainer}>
 
-            <div className={style.btnContainer} >
-                <img src={Marvel} onClick={() => navigate(-1)} />
-                <input placeholder="Procure por heróis" />
-            </div>
-            {
-                loading ?
+                <div className={style.btnContainer} >
+                    <img src={Marvel} onClick={() => navigate(-1)} />
+                    <input placeholder="Procure por heróis" />
+                </div>
+                {
+                    loading ?
 
-                    <div>
-                        <img
-                            style={{ width: '200px', height: '200px', cursor: "pointer" }}
-                            alt="Wanda loading"
-                            src="https://www.icegif.com/wp-content/uploads/2024/07/venom-icegif-3.gif"
-                        />
-                        <br />
-                        <br />
-                        Carregando ...
-                    </div>
-                    :
-                    <> <div
-                        className={style.container}
-                    >
-                        <div>
-                            <div className={style.title} >
-                                <h2>{hero.name}</h2>
-                                <img
-                                    src={favoritos?.includes(Number(id)) ? HeartFull : HeartEmpty}
-                                    style={{ width: '20px', height: '20px' }}
-                                    onClick={()=> saveFavorito(id)}
-                                />
-                            </div>
-                            <p style={{ color: '#898989' }} >
-                                {hero.description || 'Descrição não disponível'}
-                            </p>
-
-                            <div>
-                                <div className={style.flex} >
-                                    <div>
-                                        <p>
-                                            Quadrinhos
-                                        </p>
-                                        <img src={Book} style={{ width: '20px', height: '20px', marginRight: '12px' }} />
-                                        <span>{hero?.stories?.available}</span>
-                                    </div>
-                                    <div>
-                                        <p>Filmes</p>
-                                        <img src={Movie} style={{ width: '20px', height: '16px', marginRight: '12px' }} />
-                                        <span>{hero?.series?.available}</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <p>Rating</p>
-                                    <img src={Rating} style={{ width: 'auto', height: '16px', marginRight: '12px' }} />
-                                </div>
-                                <div>
-                                    <p>  Último quadrinho:
-                                        <span>
-                                            {`  ${latestComic && format(new Date(latestComic), 'dd MMM. yyyy', { locale: ptBR })}`}
-                                        </span>
-                                    </p>
-
-                                    {/* <br />
-                                    {latestComic} */}
-                                </div>
-                            </div>
-                        </div>
                         <div>
                             <img
-                                src={`${hero.thumbnail?.path}.${hero.thumbnail?.extension}`}
+                                style={{ width: '200px', height: '200px', cursor: "pointer" }}
+                                alt="Wanda loading"
+                                src="https://www.icegif.com/wp-content/uploads/2024/07/venom-icegif-3.gif"
                             />
+                            <br />
+                            <br />
+                            Carregando ...
                         </div>
-                    </div>
-                        <div className={style.comic} >
-                            <h3>Últimos lançamentos</h3>
-                            <div className={style.comicDiv} >
-                                {
-                                    comics &&
-                                    comics.map((item) => {
-                                        return (
-                                            <div className={style.comicCard} key={item.id} >
-                                                <img
-                                                    src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
-                                                />
-                                                <br />
-                                                <span>
-                                                    {`${item?.title?.slice(0, 20)}...`}
-                                                    {/* {item?.title} */}
-                                                </span>
-                                            </div>
-                                        )
-                                    })
-                                }
+                        :
+                        <> <div
+                            className={style.container}
+                        >
+                            <div>
+                                <div className={style.title} >
+                                    <h2>{hero.name}</h2>
+                                    <img
+                                        src={favoritos?.includes(Number(id)) ? HeartFull : HeartEmpty}
+                                        style={{ width: '20px', height: '20px' }}
+                                        onClick={() => saveFavorito(id)}
+                                    />
+                                </div>
+                                <p style={{ color: '#898989' }} >
+                                    {hero.description || 'Descrição não disponível'}
+                                </p>
+
+                                <div>
+                                    <div className={style.flex} >
+                                        <div>
+                                            <p>
+                                                Quadrinhos
+                                            </p>
+                                            <img src={Book} style={{ width: '20px', height: '20px', marginRight: '12px' }} />
+                                            <span>{hero?.stories?.available}</span>
+                                        </div>
+                                        <div>
+                                            <p>Filmes</p>
+                                            <img src={Movie} style={{ width: '20px', height: '16px', marginRight: '12px' }} />
+                                            <span>{hero?.series?.available}</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p>Rating</p>
+                                        <img src={Rating} style={{ width: 'auto', height: '16px', marginRight: '12px' }} />
+                                    </div>
+                                    <div>
+                                        <p>  Último quadrinho:
+                                            <span>
+                                              {
+                                                comics.length > 0 ?
+                                                `  ${latestComic && format(new Date(latestComic), 'dd MMM. yyyy', { locale: ptBR })}`
+                                                :
+                                                <>
+                                                Sem quadrinhos pulbicados
+                                                </>
+                                              }  
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <img
+                                    src={`${hero.thumbnail?.path}.${hero.thumbnail?.extension}`}
+                                />
                             </div>
                         </div>
-                    </>
+                            <div className={style.comic} >
+                                <h3>Últimos lançamentos</h3>
+                                <div className={style.comicDiv} >
+                                    {
+                                        comics.length > 0 ?
+                                        comics.map((item) => {
+                                            return (
+                                                <div className={style.comicCard} key={item.id} >
+                                                    <img
+                                                        src={`${item.thumbnail.path}.${item.thumbnail.extension}`}
+                                                    />
+                                                    <br />
+                                                    <span>
+                                                        {`${item?.title?.slice(0, 20)}...`}
+                                                    </span>
+                                                </div>
+                                            )
+                                        })
+                                        :
+                                        <div> <p style={{ color: '#898989' }}>Não existem quadrinhos para este personagem</p> </div>
+                                    }
+                                </div>
+                            </div>
+                        </>
 
-            }
-        </div>
+                }
+            </div>
         </>
     )
 }

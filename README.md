@@ -11,7 +11,7 @@ Este projeto utiliza a [Marvel API](https://developer.marvel.com/) para buscar e
 
 ## Link do projeto publicado
 
-https://wanting-riddle.surge.sh/
+https://painful-land.surge.sh/
 
 ## Como Rodar o Projeto
 

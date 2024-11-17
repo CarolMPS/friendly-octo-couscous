@@ -11,7 +11,6 @@ export default function Lista({
     favoritos,
     showFavorites,
     amountOf,
-    handleAmount,
     itemsPerPage,
     page
 }) {
@@ -90,16 +89,6 @@ export default function Lista({
                                 )
                             })
                         }
-
-                        {/* {
-                            showFavorites === 'Todos os heróis' || amountOf > 80 ?
-                                <></>
-                                :
-                                <div className={style.btnDiv} >
-                                    <button onClick={() => handleAmount()} >Ver mais</button>
-                                </div>
-                        } */}
-
                     </>
             }
         </div>

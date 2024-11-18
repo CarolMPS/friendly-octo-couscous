@@ -96,7 +96,7 @@ export default function Detail() {
         if (favoritos.includes(Number(id))) {
             deleteFavorito(id)
         } else {
-            if (favoritos.length >= 5) {
+            if (favoritos?.length >= 5) {
                 alert("Poxa, o máximo são 5 favoritos, desapegue de um para poder salvar esse.");
             } else if (!favoritos.includes(id)) {
                 const novosFavoritos = [...favoritos, Number(id)];
@@ -168,7 +168,7 @@ export default function Detail() {
                                         <p>  Último quadrinho:
                                             <span>
                                               {
-                                                comics.length > 0 ?
+                                                comics?.length > 0 ?
                                                 `  ${latestComic && format(new Date(latestComic), 'dd MMM. yyyy', { locale: ptBR })}`
                                                 :
                                                 <>
@@ -190,7 +190,7 @@ export default function Detail() {
                                 <h3>Últimos lançamentos</h3>
                                 <div className={style.comicDiv} >
                                     {
-                                        comics.length > 0 ?
+                                        comics?.length > 0 ?
                                         comics.map((item) => {
                                             return (
                                                 <div className={style.comicCard} key={item.id} >

@@ -13,6 +13,8 @@ Este projeto utiliza a [Marvel API](https://developer.marvel.com/) para buscar e
 
 https://painful-land.surge.sh/
 
+LINK ATUALIZADO: https://keen-debt.surge.sh
+
 ## Como Rodar o Projeto
 
 1. Clone o repositório:
